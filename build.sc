@@ -1,7 +1,8 @@
+//| mill-version: 1.0.6
 import mill._
-import scalalib._
-import scalajslib._
-import scalajslib.api._
+import mill.scalalib._
+import mill.scalajslib._
+import mill.scalajslib.api._
 import mill.scalalib.publish._
 
 object custom extends ScalaJSModule with PublishModule {
