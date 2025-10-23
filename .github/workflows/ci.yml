@@ -14,7 +14,7 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
     - name: Setup Mill
-      uses: jodersky/setup-mill@v0
+      uses: jodersky/setup-mill@master
       with:
         mill-version: '1.0.6'
     - name: Compile
