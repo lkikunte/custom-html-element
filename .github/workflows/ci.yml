@@ -14,10 +14,11 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
     - name: Setup Mill
-      uses: jodersky/setup-mill@v0.3.0
-      with:
-        mill-version: '1.0.6'
-    - name: Compile
-      run: mill custom.compile
-    - name: Test
-      run: mill custom.test
+      run: |
+        curl -fsSL -o mill https://raw.githubusercontent.com/com-lihaoyi/mill/1.0.6/mill
+        chmod +x mill
+        ./mill --version
+    - name: Publish Local
+      run: ./mill custom.publishLocal
+    - name: Publish
+      run: ./mill custom.publish
