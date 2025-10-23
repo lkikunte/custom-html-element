@@ -13,7 +13,7 @@ jobs:
         java-version: '17'
     - name: Setup Mill
       run: |
-        curl -L https://github.com/com-lihaoyi/mill/releases/download/1.0.6/1.0.6 > mill
+        curl -L https://github.com/com-lihaoyi/mill/releases/download/1.0.6/1.0.6-assembly > mill
         chmod +x mill
     - name: Publish Local
       run: ./mill custom.publishLocal
