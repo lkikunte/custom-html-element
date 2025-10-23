@@ -12,13 +12,13 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
     - name: Setup Mill
-      run: |
-        curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.0.6/mill-dist-1.0.6-assembly > mill
-        chmod +x mill
+      uses: jodersky/setup-mill@v0
+      with:
+        mill-version: '1.0.6'
     - name: Publish Local
-      run: ./mill custom.publishLocal
+      run: mill custom.publishLocal
     - name: Publish
-      run: ./mill custom.publish
+      run: mill custom.publish
       env:
         MILL_PGP_PASSPHRASE: ${{ secrets.MILL_PGP_PASSPHRASE }}
         MILL_PGP_SECRET_BASE64: ${{ secrets.MILL_PGP_SECRET_BASE64 }}
