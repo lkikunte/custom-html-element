@@ -34,12 +34,17 @@ object custom extends ScalaJSModule with PublishModule {
   )
 
   // Include documentation in the published artifact
-  def docSources = T.sources {
-    millSourcePath / "docs"
+  def docJar = T {
+    val docsPath = millSourcePath / "docs"
+    if (os.exists(docsPath)) {
+      mill.api.Result.Success(createJar(Agg(docsPath)))
+    } else {
+      mill.api.Result.Success(createJar(Agg()))
+    }
   }
 
   // Test module
-  object test extends Tests {
+  object test extends ScalaJSTests {
     def mvnDeps = Seq(
       mvn"com.lihaoyi::utest::0.8.4" // Latest uTest version
     )
