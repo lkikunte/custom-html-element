@@ -4,8 +4,6 @@ import mill.scalalib._
 import mill.scalajslib._
 import mill.scalajslib.api._
 import mill.scalalib.publish._
-import $ivy.`com.lihaoyi::mill-contrib-sonatypecentral:1.0.6`
-import mill.contrib.sonatypecentral.SonatypeCentralPublishModule
 
 object custom extends ScalaJSModule with SonatypeCentralPublishModule {
   def scalaVersion = "3.3.6"
