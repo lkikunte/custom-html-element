@@ -16,12 +16,10 @@ jobs:
         curl -fsSL -o mill https://raw.githubusercontent.com/com-lihaoyi/mill/1.0.6/mill
         chmod +x mill
         ./mill --version
-    - name: Publish Local
-      run: ./mill custom.publishLocal
-    - name: Publish
-      run: ./mill custom.publish
+    - name: Publish to Sonatype Central
+      run: ./mill custom.publishSonatypeCentral
       env:
         MILL_PGP_PASSPHRASE: ${{ secrets.MILL_PGP_PASSPHRASE }}
         MILL_PGP_SECRET_BASE64: ${{ secrets.MILL_PGP_SECRET_BASE64 }}
-        MILL_SONATYPE_USERNAME: ${{ secrets.MILL_SONATYPE_USERNAME }}
-        MILL_SONATYPE_PASSWORD: ${{ secrets.MILL_SONATYPE_PASSWORD }}
+        SONATYPE_USERNAME: ${{ secrets.MILL_SONATYPE_USERNAME }}
+        SONATYPE_PASSWORD: ${{ secrets.MILL_SONATYPE_PASSWORD }}
