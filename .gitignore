@@ -1,0 +1,21 @@
+# Scala.js
+/out/
+/target/
+*.js.map
+*.log
+
+# Dependencies
+.ivy2/
+.m2/
+mill-*
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.bloop/
+.metals/
+
+# OS
+.DS_Store
+Thumbs.db
